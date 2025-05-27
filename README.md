@@ -1,2 +1,2 @@
 # fed-youtube-scraper
-Proyecto para econometría II. Scraping de comentarios del canal de la FED.
+Proyecto para econometría II. Scraping de comentarios del canal del Banco Mundial (BM).

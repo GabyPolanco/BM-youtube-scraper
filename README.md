@@ -21,6 +21,3 @@ El objetivo es construir un reproducible para recolectar comentarios de YouTube 
 ```bash
 git clone https://github.com/TU_USUARIO/youtube-comments-scraper.git
 cd youtube-comments-scraper
-=======
-# BM-youtube-scraper
-Proyecto para econometría II. Scraping de comentarios del canal del Banco Mundial (BM).

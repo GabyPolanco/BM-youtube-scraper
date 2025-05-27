@@ -53,7 +53,9 @@ while len(all_comments) < 500 and videos_tried < max_videos_to_try:
         video_id = video['id']['videoId']
         title = video['snippet']['title']
         publishedAt = video['snippet']['publishedAt']
-        print(f"\nFetching comments from: {title} (ID: {video_id})")
+        print(
+            f"\nFetching comments from: {title} (ID: {video_id})"
+        )
 
         try:
             comment_page_token = None
@@ -73,6 +75,7 @@ while len(all_comments) < 500 and videos_tried < max_videos_to_try:
                         text = item['snippet']['topLevelComment']['snippet'][
                             'textDisplay'
                         ]
+                        text = text.replace('\n', ' ').replace('\r', ' ')
                         all_comments.append({
                             'comment_id': comment_id,
                             'text': text,
@@ -86,7 +89,9 @@ while len(all_comments) < 500 and videos_tried < max_videos_to_try:
                     break
 
         except Exception as e:
-            print(f"Error fetching comments for {title}: {e}")
+            print(
+                f"Error fetching comments for {title}: {e}"
+            )
 
     video_page_token = response_uploads.get('nextPageToken')
     if not video_page_token:
@@ -113,6 +118,5 @@ with open('data/dataset.csv', 'w', encoding='utf-8', newline='') as f:
     )
     writer.writeheader()
     writer.writerows(all_comments)
-
 
 print("\nComments saved to data/dataset.csv")
